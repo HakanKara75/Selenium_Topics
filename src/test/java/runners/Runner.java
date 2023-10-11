@@ -21,7 +21,7 @@ senaryoyu çalıştırabiliriz
                         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},//spark report icin
               //  monochrome = true, //console okunakli hale getirir, renksiz yapar
                 features = "src/test/resources/features",
-                 glue = {"stepDefinitions", "runners"},
+                 glue = {"stepdefinitions", "runners"},
         /* 1-Bu parametre ile kodlarımızı yazdığımız stepDefinition class'ının packege'ını belirtiriz
 2- Hooks classin yolunu veririz.
                                              */

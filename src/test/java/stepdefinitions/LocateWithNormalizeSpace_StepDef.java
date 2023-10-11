@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.ders.day02_SearchParameterizing_Page;
+import pages.LocateWithNormalizeSpace_Page;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -15,9 +15,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class day02_SearchParameterizing_StepDef {
+public class LocateWithNormalizeSpace_StepDef {
 
-    day02_SearchParameterizing_Page search=new day02_SearchParameterizing_Page();
+    LocateWithNormalizeSpace_Page search=new LocateWithNormalizeSpace_Page();
     String string1="";
 
     @Given("madame coco sitesine gidilir")
