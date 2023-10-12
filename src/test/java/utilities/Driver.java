@@ -1,12 +1,14 @@
 package utilities;
 
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -37,6 +39,11 @@ public class Driver {
                 case "chrome":
 
                     driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
+
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER); //sayfanın yüklenmeye başladığı anda sayfanın yüklenmiş olarak kabul edilmesini sağlar
+                    chromeOptions.setPageLoadTimeout(Duration.ofSeconds(15)); //sayfa yüklemesi sırasında maksimum bekleme süresini 14 saniye olarak ayarlar
+
                     break;
                 case "edge":
 
