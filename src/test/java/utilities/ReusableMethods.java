@@ -514,4 +514,17 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    /**
+     * asagidaki kod ile shadow root yapisina sahip tag'in PARENT'inin locatini searchContext objesine atiyoruz.
+     * Boylece elementin Shadow Dom try yapisina ulasiliyor
+     * @param xpathPath parentin xpath yolu içine text olarak atilmali
+     * @param cssSelectorPath childin css yolu içine text olarak atilmali
+     */
+    public static void shadowDomElementClick(String xpathPath, String cssSelectorPath) {
+        SearchContext parentSearchContext = Driver.getDriver().findElement(By.xpath(xpathPath)).getShadowRoot();
+        WebElement shadowElement = parentSearchContext.findElement(By.cssSelector(cssSelectorPath));
+
+        shadowElement.click();
+    }
 }
