@@ -11,7 +11,7 @@ import mini_bootcamp_cucumber.utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 
-public class Day01_BackGround_Stepdef {
+public class Cucumber_BackGround_Stepdef {
     Day01_Background_Page page=new Day01_Background_Page();
     String expectedUrl="";
     @Given("ets tur sitesine gidilir")

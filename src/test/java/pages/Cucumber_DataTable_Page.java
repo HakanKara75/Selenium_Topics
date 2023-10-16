@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Day04DataTable_Page {
+public class Cucumber_DataTable_Page {
 
-    public Day04DataTable_Page() {
+    public Cucumber_DataTable_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

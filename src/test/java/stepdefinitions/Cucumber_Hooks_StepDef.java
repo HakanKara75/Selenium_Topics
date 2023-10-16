@@ -10,7 +10,7 @@ import org.openqa.selenium.Keys;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Day05_Hooks_StepDef {
+public class Cucumber_Hooks_StepDef {
 
     Day05_Hooks_Page page=new Day05_Hooks_Page();
     String sonuc="";

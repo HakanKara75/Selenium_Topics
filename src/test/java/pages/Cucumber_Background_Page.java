@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Day01_Background_Page {
+public class Cucumber_Background_Page {
 
-    public Day01_Background_Page() {
+    public Cucumber_Background_Page() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 

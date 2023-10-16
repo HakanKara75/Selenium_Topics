@@ -11,7 +11,7 @@ import org.junit.Assert;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Day06Excell_StepDef {
+public class Cucumber_Excell_StepDef {
 
     Day06Excell_Page page= new Day06Excell_Page();
     String firstUrl="";

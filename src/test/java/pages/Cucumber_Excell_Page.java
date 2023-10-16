@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Day06Excell_Page {
-    public Day06Excell_Page(){
+public class Cucumber_Excell_Page {
+    public Cucumber_Excell_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

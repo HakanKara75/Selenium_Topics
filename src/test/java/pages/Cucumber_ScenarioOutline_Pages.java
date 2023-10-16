@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Day03ScenarioOutline_Pages {
-    public Day03ScenarioOutline_Pages() {
+public class Cucumber_ScenarioOutline_Pages {
+    public Cucumber_ScenarioOutline_Pages() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

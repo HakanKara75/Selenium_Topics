@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Day05_Hooks_Page {
+public class Cucumber_Hooks_Page {
 
-    public Day05_Hooks_Page() {
+    public Cucumber_Hooks_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

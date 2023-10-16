@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Day02SearchParameterizing_Page {
+public class Cucumber_SearchParameterizing_Page {
 
-    public Day02SearchParameterizing_Page(){
+    public Cucumber_SearchParameterizing_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

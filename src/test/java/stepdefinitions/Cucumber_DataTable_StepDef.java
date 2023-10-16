@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Day04DataTable_StepDef {
+public class Cucumber_DataTable_StepDef {
 
     Day04DataTable_Page page = new Day04DataTable_Page();
 

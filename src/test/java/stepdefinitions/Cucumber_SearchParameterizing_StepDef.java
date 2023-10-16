@@ -12,7 +12,7 @@ import org.openqa.selenium.Keys;
 
 import static org.junit.Assert.assertTrue;
 
-public class Day02SearchParameterizing_StepDef {
+public class Cucumber_SearchParameterizing_StepDef {
 
     Day02SearchParameterizing_Page page= new Day02SearchParameterizing_Page();
     Faker faker= new Faker();

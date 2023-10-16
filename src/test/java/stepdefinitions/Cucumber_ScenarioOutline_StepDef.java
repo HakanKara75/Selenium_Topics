@@ -12,7 +12,7 @@ import mini_bootcamp_cucumber.utilities.ReusableMethods;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Day03ScenarioOutline_StepDef {
+public class Cucumber_ScenarioOutline_StepDef {
     Day03ScenarioOutline_Pages page=new Day03ScenarioOutline_Pages();
 
     @Given("boyner sitesine gidilir")
