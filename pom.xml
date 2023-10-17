@@ -68,7 +68,26 @@
             <artifactId>extentreports-cucumber7-adapter</artifactId>
             <version>1.8.4</version>
         </dependency>
+
+        <!-- API request ve dogrulamalari icin -->
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-translate -->
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-translate</artifactId>
+            <version>2.28.0</version>
+        </dependency>
+
+
     </dependencies>
+
 
     <build>
         <plugins>

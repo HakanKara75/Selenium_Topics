@@ -9,12 +9,14 @@ import pojo.US04_US05_Pojos.US04Pojo;
 import pojo.US04_US05_Pojos.US04_OuterPojo;
 import utilities.ObjectMapperUtils;
 import utilities.US04_US05_Methods;
+
+import static base_urls.Faker_Class_$_API_BaseUrl.spec;
 import static io.restassured.RestAssured.given;
-import static org.testng.AssertJUnit.assertEquals;
-import static pages.base_urls.ManagementOnSchoolsBaseUrl.spec;
+import static org.junit.Assert.*;
+
 
 public class Faker_Class_$_API_StefDefinitions extends US04_US05_Methods {
-    public static  Response response;
+    public static Response response;
     US04_OuterPojo expectedDean;
     US04Pojo us04Pojo;
     static String userId;

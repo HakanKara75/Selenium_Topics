@@ -9,25 +9,30 @@ import mini_bootcamp_cucumber.utilities.ConfigurationReader;
 import mini_bootcamp_cucumber.utilities.Driver;
 import mini_bootcamp_cucumber.utilities.ReusableMethods;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import pages.Cucumber_SearchParameterizing_Page;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertTrue;
 
 public class Cucumber_SearchParameterizing_StepDef {
 
-    Day02SearchParameterizing_Page page= new Day02SearchParameterizing_Page();
+    Cucumber_SearchParameterizing_Page page= new Cucumber_SearchParameterizing_Page();
     Faker faker= new Faker();
     String product="";
     @Given("madame coco sitesine gidilir")
     public void madame_coco_sitesine_gidilir() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("madameCoco"));
+        Driver.getDriver().get(ConfigReader.getProperty("madameCoco"));
     }
     @Given("arama kutusuna vazo yazilir")
     public void arama_kutusuna_vazo_yazilir() {
-        ReusableMethods.wait(5);
+        ReusableMethods.visibleWait(ReusableMethods.webelementJavaScript("document.querySelector(\"#ccp---nb > div.cc-nb-main-container > div.cc-nb-buttons-container > button.cc-nb-reject\")"), 5);
         ReusableMethods.clickJSElementWithJavaScript("document.querySelector(\"#ccp---nb > div.cc-nb-main-container > div.cc-nb-buttons-container > button.cc-nb-reject\")");
-        ReusableMethods.wait(3);
+        ReusableMethods.visibleWait(ReusableMethods.webelementJavaScript("document.querySelector(\"#wis-lightbox-244800 > img\")"), 5);
         ReusableMethods.clickJSElementWithJavaScript("document.querySelector(\"#wis-lightbox-244800 > img\")");
-        ReusableMethods.wait(2);
+        ReusableMethods.visibleWait(page.miniReklam, 2);
         page.miniReklam.click();
         try{
     page.searchBox.sendKeys("Vazo", Keys.ENTER);
