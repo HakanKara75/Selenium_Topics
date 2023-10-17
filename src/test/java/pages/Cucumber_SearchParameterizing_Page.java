@@ -1,11 +1,10 @@
 package pages;
 
-import mini_bootcamp_cucumber.utilities.Driver;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
-
+import utilities.*;
 import java.util.List;
 
 public class Cucumber_SearchParameterizing_Page {

@@ -2,18 +2,11 @@ package stepdefinitions;
 
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import mini_bootcamp_cucumber.pages.Day02SearchParameterizing_Page;
-import mini_bootcamp_cucumber.utilities.ConfigurationReader;
-import mini_bootcamp_cucumber.utilities.Driver;
-import mini_bootcamp_cucumber.utilities.ReusableMethods;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import io.cucumber.java.en.*;
+import org.openqa.selenium.*;
 import pages.Cucumber_SearchParameterizing_Page;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.ReusableMethods;
+import utilities.*;
+
 
 import static org.junit.Assert.assertTrue;
 
