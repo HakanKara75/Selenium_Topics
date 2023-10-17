@@ -15,10 +15,7 @@ public class Cucumber_SearchParameterizing_StepDef {
     Cucumber_SearchParameterizing_Page page= new Cucumber_SearchParameterizing_Page();
     Faker faker= new Faker();
     String product="";
-    @Given("madame coco sitesine gidilir")
-    public void madame_coco_sitesine_gidilir() {
-        Driver.getDriver().get(ConfigReader.getProperty("madameCoco"));
-    }
+
     @Given("arama kutusuna vazo yazilir")
     public void arama_kutusuna_vazo_yazilir() {
         ReusableMethods.visibleWait(ReusableMethods.webelementJavaScript("document.querySelector(\"#ccp---nb > div.cc-nb-main-container > div.cc-nb-buttons-container > button.cc-nb-reject\")"), 5);
@@ -31,10 +28,6 @@ public class Cucumber_SearchParameterizing_StepDef {
     page.searchBox.sendKeys("Vazo", Keys.ENTER);
 }catch (Exception e){}
 
-    }
-    @Then("sonuclarda vazo oldugu dogrulanir")
-    public void sonuclarda_vazo_oldugu_dogrulanir() {
-        assertTrue(page.login.get(0).getText().contains("Vazo"));
     }
 
     @Given("ingilizce menu secilir")
@@ -69,6 +62,7 @@ public class Cucumber_SearchParameterizing_StepDef {
     public void sonuclarada_oldugu_dogrulanir(String string) {
 
         assertTrue(page.sonuc.getText().contains(product));
+        assertTrue(page.login.get(0).getText().contains("Vazo"));
         Driver.closeDriver();
 
     }

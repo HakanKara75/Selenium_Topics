@@ -4,56 +4,61 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mini_bootcamp_cucumber.pages.Day01_Background_Page;
-import mini_bootcamp_cucumber.utilities.ConfigurationReader;
-import mini_bootcamp_cucumber.utilities.Driver;
-import mini_bootcamp_cucumber.utilities.ReusableMethods;
+import pages.Cucumber_Background_Page;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
+
 
 import static org.junit.Assert.assertEquals;
 
 public class Cucumber_BackGround_Stepdef {
-    Day01_Background_Page page=new Day01_Background_Page();
+    Cucumber_Background_Page page=new Cucumber_Background_Page();
     String expectedUrl="";
     @Given("ets tur sitesine gidilir")
     public void etsTurSitesineGidilir() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("etstur"));
+        Driver.getDriver().get(ConfigReader.getProperty("etstur"));
         expectedUrl = Driver.getDriver().getCurrentUrl();
 
     }
 
     @And("login butonu ustune gidilir")
     public void loginButonuUstuneGidilir() {
-        ReusableMethods.hover(page.login);
-        ReusableMethods.wait(2);
+        ReusableMethods.moveToElementWithAction(page.login);
+
     }
 
     @When("giris butonuna basilir")
     public void girisButonunaBasilir() {
-
+        ReusableMethods.visibleWait(page.giris, 10);
         page.giris.click();
-        ReusableMethods.wait(2);
+
     }
 
     @And("eposta girilir")
     public void epostaGirilir() {
+        ReusableMethods.visibleWait(page.email, 10);
         page.email.sendKeys("hakan@gmail.com");
-        ReusableMethods.wait(2);
+
     }
 
     @And("password girilri")
     public void passwordGirilri() {
+        ReusableMethods.visibleWait(page.password, 10);
         page.password.sendKeys("524353443");
-        ReusableMethods.wait(2);
+
     }
 
     @When("giris yap butonuna basilir")
     public void girisYapButonunaBasilir() {
+        ReusableMethods.visibleWait(page.girisYap, 10);
         page.girisYap.click();
-        ReusableMethods.wait(2);
+
     }
 
     @Then("sayfaya gidilemedigi dogrulanir")
     public void sayfayaGidilemedigiDogrulanir() {
+
         String actualUrl= Driver.getDriver().getCurrentUrl();
         assertEquals("hakan",actualUrl);
         Driver.closeDriver();
@@ -64,13 +69,13 @@ public class Cucumber_BackGround_Stepdef {
     public void soyadGirilir() {
 
         page.soyad.sendKeys("gsfdgdfg");
-        ReusableMethods.wait(2);
+        ReusableMethods.visibleWait(page.soyad, 10);
     }
 
     @And("uye ol butonuna basilir")
     public void uyeOlButonunaBasilir() {
         page.uyeOl.click();
-        ReusableMethods.wait(2);
+        ReusableMethods.visibleWait(page.uyeOl, 10);
     }
 
     @And("ad girilir")
@@ -87,7 +92,7 @@ public class Cucumber_BackGround_Stepdef {
     @And("ceptelefonu girilir")
     public void ceptelefonuGirilir() {
         page.ceptel.sendKeys("436453647");
-        ReusableMethods.wait(2);
+
     }
 
     @And("uyelik icin password girilir")
@@ -115,4 +120,6 @@ public class Cucumber_BackGround_Stepdef {
         page.uyelikUyeOl.click();
 
     }
+
+
 }

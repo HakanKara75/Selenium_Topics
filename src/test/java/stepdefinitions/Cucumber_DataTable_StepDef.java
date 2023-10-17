@@ -4,10 +4,10 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mini_bootcamp_cucumber.pages.Day04DataTable_Page;
-import mini_bootcamp_cucumber.utilities.ConfigurationReader;
-import mini_bootcamp_cucumber.utilities.Driver;
-import mini_bootcamp_cucumber.utilities.ReusableMethods;
+import pages.Cucumber_DataTable_Page;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -16,28 +16,28 @@ import static org.junit.Assert.assertTrue;
 
 public class Cucumber_DataTable_StepDef {
 
-    Day04DataTable_Page page = new Day04DataTable_Page();
+    Cucumber_DataTable_Page page = new Cucumber_DataTable_Page();
 
     @Given("{string} sitesine gidilir")
     public void sitesine_gidilir(String string) {
         switch (string) {
             case "cicek sepeti":
-                Driver.getDriver().get(ConfigurationReader.getProperty("ciceksepeti"));
+                Driver.getDriver().get(ConfigReader.getProperty("ciceksepeti"));
                 break;
             case "trendyol":
-                Driver.getDriver().get(ConfigurationReader.getProperty("trendyol"));
+                Driver.getDriver().get(ConfigReader.getProperty("trendyol"));
                 break;
             case "boyner":
-                Driver.getDriver().get(ConfigurationReader.getProperty("boyner"));
+                Driver.getDriver().get(ConfigReader.getProperty("boyner"));
                 break;
             case "madame coco":
-                Driver.getDriver().get(ConfigurationReader.getProperty("madameCoco"));
+                Driver.getDriver().get(ConfigReader.getProperty("madameCoco"));
                 break;
             case "ets tur":
-                Driver.getDriver().get(ConfigurationReader.getProperty("etstur"));
+                Driver.getDriver().get(ConfigReader.getProperty("etstur"));
                 break;
                 case "herokuapp":
-                Driver.getDriver().get(ConfigurationReader.getProperty("herokuapp"));
+                Driver.getDriver().get(ConfigReader.getProperty("herokuapp"));
                 break;
             default:
                 break;
@@ -47,10 +47,10 @@ public class Cucumber_DataTable_StepDef {
     @When("dogum gunu linki tiklanir")
     public void dogum_gunu_linki_tiklanir() {
         page.hediye.click();
-        ReusableMethods.wait(2);
+        ReusableMethods.visibleWait(page.kabulEt, 10);
 
         page.kabulEt.click();
-        ReusableMethods.wait(2);
+        ReusableMethods.bekle(2);
 
         ReusableMethods.clickJSElementWithJavaScript("document.querySelector(\"body > div.header__bottom.js-header-bottom.switcher-active > div.container.container--main-menu.js-navigasyon-container > div.responsive-menu.js-responsive-menu > nav > ul > li:nth-child(11) > span > a\")");
 
@@ -80,26 +80,26 @@ public class Cucumber_DataTable_StepDef {
             switch (bilgiler.get(i)) {
                 case "bej":
                     page.bej.click();
-                    ReusableMethods.wait(2);
+                    ReusableMethods.bekle(2);
                     break;
                 case "beyaz":
                     page.beyaz.click();
-                    ReusableMethods.wait(2);
+                    ReusableMethods.bekle(2);
                     break;
                 case "çok renkli":
                     page.cokRenkli.click();
-                    ReusableMethods.wait(2);
+                    ReusableMethods.bekle(2);
                     break;
                 case "gri":
                     page.gri.click();
                     assertTrue(page.gri.isSelected());
-                    ReusableMethods.wait(2);
+                    ReusableMethods.bekle(2);
                     break;
                 default:
                     break;
             }
             Driver.getDriver().get("https://www.ciceksepeti.com/dogum-gunu-hediyeleri");
-            ReusableMethods.wait(2);
+            ReusableMethods.visibleWait(page.renk, 5);
             page.renk.click();
         }
 

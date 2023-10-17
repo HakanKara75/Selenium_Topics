@@ -6,19 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import pages.others1.Kisi_Ekleme_Guncelleme_Modulu;
-import pages.others1.Login_Modulu;
+import pages.US04_US05_Dean_Ekleme_Guncelleme_Silme_Modulu;
 
 import java.time.Duration;
 
 import static utilities.ReusableMethods.clickByJavaScript;
 
 public class US04_US05_Methods extends US04_05 implements US04_05_Methods {
-    static Kisi_Ekleme_Guncelleme_Modulu kisi = new Kisi_Ekleme_Guncelleme_Modulu();
-    Login_Modulu login = new Login_Modulu();
-
-    US19_US20_US21_TeacherMeetingVeStudentNotesModulu page = new US19_US20_US21_TeacherMeetingVeStudentNotesModulu();
-
+    US04_US05_Dean_Ekleme_Guncelleme_Silme_Modulu kisi=new US04_US05_Dean_Ekleme_Guncelleme_Silme_Modulu();
 
     /**
      *
@@ -53,23 +48,23 @@ public class US04_US05_Methods extends US04_05 implements US04_05_Methods {
     @Override
     public void loginMethod(String username, String password) {
         Driver.getDriver().get(ConfigReader.getProperty("manageUrl"));
-        page.login.click();
+        kisi.login.click();
 
         switch (username) {
             case "adminUsername":
-                login.username.sendKeys(ConfigReader.getProperty("adminUsername"));
+                kisi.username.sendKeys(ConfigReader.getProperty("adminUsername"));
                 break;
             case "deanUsername":
-                login.username.sendKeys(ConfigReader.getProperty("deanUsername"));
+                kisi.username.sendKeys(ConfigReader.getProperty("deanUsername"));
                 break;
             case "viceDeanUsername":
-                login.username.sendKeys(ConfigReader.getProperty("viceDeanUsername"));
+                kisi.username.sendKeys(ConfigReader.getProperty("viceDeanUsername"));
                 break;
             case "teacherUsername":
-                login.username.sendKeys(ConfigReader.getProperty("teacherUsername"));
+                kisi.username.sendKeys(ConfigReader.getProperty("teacherUsername"));
                 break;
             case "studentUsername":
-                login.username.sendKeys(ConfigReader.getProperty("studentUsername"));
+                kisi.username.sendKeys(ConfigReader.getProperty("studentUsername"));
                 break;
 
             default:
@@ -77,10 +72,10 @@ public class US04_US05_Methods extends US04_05 implements US04_05_Methods {
 
         }
 
-        login.password.sendKeys(ConfigReader.getProperty(password));
+        kisi.password.sendKeys(ConfigReader.getProperty(password));
 
         //login.uyeGirisKismiLoginButton.click();
-        clickByJavaScript(login.uyeGirisKismiLoginButton);
+        clickByJavaScript(kisi.uyeGirisKismiLoginButton);
     }
 
 
@@ -114,8 +109,8 @@ public class US04_US05_Methods extends US04_05 implements US04_05_Methods {
      */
     @Override
     public void deanBolumuGiris() {
-        login.menu.click();
-        login.deanManagement.click();
+        kisi.menu.click();
+        kisi.deanManagement.click();
     }
 
     public void milisaniyeBekle(int milisaniye){

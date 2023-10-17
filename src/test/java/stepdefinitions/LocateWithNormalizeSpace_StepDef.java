@@ -26,16 +26,8 @@ public class LocateWithNormalizeSpace_StepDef {
         search.cerez.click();
         search.reklam.click();
     }
-    @And("ingilizce menu secilir")
-    public void ingilizceMenuSecilir() {
 
-        search.english.click();
 
-    }
-    @Given("arama kutusuna vazo yazilir")
-    public void arama_kutusuna_vazo_yazilir() {
-       search.searchBox.sendKeys("vazo");
-    }
     @Then("sonuclarda vazo oldugu dogrulanir")
     public void sonuclarda_vazo_oldugu_dogrulanir() {
        List<WebElement> products= Driver.getDriver().findElements(By.cssSelector("a[class='product-item__name']"));
@@ -48,13 +40,7 @@ public class LocateWithNormalizeSpace_StepDef {
 
     @Given("arama kutusuna {string} yazilir")
     public void arama_kutusuna_yazilir(String string) {
-        Faker faker=new Faker();
-        string1= faker.commerce().productName();
-        if(string.equals("<urun>")){
-            search.searchBox.click();
-            search.searchBox.sendKeys(string1);
-        }
-        ReusableMethods.bekle(2);
+
 
     }
     @Then("sonuclarda {string} oldugu dogrulanir")

@@ -4,25 +4,25 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mini_bootcamp_cucumber.pages.Day03ScenarioOutline_Pages;
-import mini_bootcamp_cucumber.utilities.ConfigurationReader;
-import mini_bootcamp_cucumber.utilities.Driver;
-import mini_bootcamp_cucumber.utilities.ReusableMethods;
+import pages.Cucumber_ScenarioOutline_Pages;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class Cucumber_ScenarioOutline_StepDef {
-    Day03ScenarioOutline_Pages page=new Day03ScenarioOutline_Pages();
+    Cucumber_ScenarioOutline_Pages page=new Cucumber_ScenarioOutline_Pages();
 
     @Given("boyner sitesine gidilir")
     public void boynerSitesineGidilir() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("boyner"));
+        Driver.getDriver().get(ConfigReader.getProperty("boyner"));
     }
 
     @When("login ikonu ustune gidilir")
     public void loginIkonuUstuneGidilir() {
-        ReusableMethods.hover(page.login);
+        ReusableMethods.moveToElementWithAction(page.login);
 
 
     }

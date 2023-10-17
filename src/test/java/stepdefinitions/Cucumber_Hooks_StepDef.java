@@ -1,28 +1,29 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mini_bootcamp_cucumber.pages.Day05_Hooks_Page;
-import mini_bootcamp_cucumber.utilities.ReusableMethods;
 import org.openqa.selenium.Keys;
+import pages.Cucumber_Hooks_Page;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Cucumber_Hooks_StepDef {
 
-    Day05_Hooks_Page page=new Day05_Hooks_Page();
+    Cucumber_Hooks_Page page=new Cucumber_Hooks_Page();
     String sonuc="";
 
-    @Given("arama kutusuna {string} yazilir")
-    public void arama_kutusuna_yazilir(String string) {
-        ReusableMethods.waitForVisibility(page.reklam, 7);
+    @And("arama kutusuna iran yapıştırıcısı yazilir")
+    public void aramaKutusunaIranYapıstırıcısıYazilir() {
+        ReusableMethods.visibleWait(page.reklam, 7);
         page.reklam.click();
-        ReusableMethods.wait(2);
+        ReusableMethods.visibleWait(page.cookies,2);
         page.cookies.click();
-        ReusableMethods.wait(2);
-        page.aramaKutusu.sendKeys(string, Keys.ENTER);
+        ReusableMethods.visibleWait(page.aramaKutusu,2);
+        page.aramaKutusu.sendKeys("iran yapıştırıcısı", Keys.ENTER);
     }
     @Then("sonuc sayfasinda {string} oldugu dogrulanir")
     public void sonuc_sayfasinda_oldugu_dogrulanir(String string) {
@@ -50,6 +51,4 @@ public class Cucumber_Hooks_StepDef {
 
 
     }
-
-
 }
