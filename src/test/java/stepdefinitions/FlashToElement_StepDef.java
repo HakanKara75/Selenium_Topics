@@ -35,7 +35,12 @@ public class FlashToElement_StepDef {
 
     @Then("sonuclarin Nutella icerdigini test eder")
     public void sonuclarin_nutella_icerdigini_test_eder() {
-        assertTrue(page.sonucYazisi.getText().contains("Nutella"));
+
+    assertTrue(page.sonucYazisi.getText().contains("Nutella"));
+
+
+}
+
     }
     @Then("sayfayi kapatir")
     public void sayfayi_kapatir() {

@@ -101,7 +101,6 @@ public class ReusableMethods {
 
     //Visible Wait
     public static void visibleWait(WebElement element, int sayi) {
-        ReusableMethods.bekle(30);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.visibilityOf(element));
 
