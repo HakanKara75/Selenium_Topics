@@ -22,6 +22,27 @@ import java.util.List;
 public class ReusableMethods {
 
     /**
+     * Bu metot sayfada locate alinan fakat otomasyonda nosuchelementexception veren locateleri almaya yarar
+     * @param driver  yerine driver verin
+     * @param element yerine aldiginiz locate girin
+     * @return
+     */
+    public static WebElement increaseVisibility(WebDriver driver, WebElement element) {
+        // JavaScriptExecutor'ı başlat
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
+        // JavaScript kodu: Elementin opaklığını '1' olarak ayarla
+        String script = "arguments[0].style.opacity='1';";
+
+        // JavaScriptExecutor ile kodu çalıştır
+        jsExecutor.executeScript(script, element);
+
+        // Değiştirilen elementi geri döndür
+        return element;
+    }
+
+
+    /**
      * Bu metot Action class kullanarak bir webelementin ustune gidip bekler
      * @param element yerine webelement'in locate koyulmalidir
      */
