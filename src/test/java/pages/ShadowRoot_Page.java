@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class ShadowRoot_Page {
 
     public ShadowRoot_Page(){
@@ -12,8 +14,12 @@ public class ShadowRoot_Page {
     }
     @FindBy(id = "ins-editable-button-1580496494")
     public WebElement kampanya;
-    @FindBy(xpath = "//div[@id='ash-plc']/following-sibling::efilli-layout-dynamic")
-    public WebElement shadowRoot;
-    @FindBy(css = "px-16px py-8px cursor-pointer rounded-4px bg-[#f58220] text-white grow text-center font-600 col-span-full md:col-span-1 lt-md:row-start-3")
-    public WebElement cerez;
+    @FindBy(css = "div[class='popup-close']")
+    public WebElement arasPopup;
+    @FindBy(xpath = "//efilli-layout-default[@class='efilli-layout-default']")
+    public WebElement shadow;
+    @FindBy(xpath = "//div[@class='banner__accept-button']")
+    public WebElement hepsiniKabulEt;
+    @FindBy(css = "svg[xmlns='http://www.w3.org/2000/svg']")
+    public List<WebElement> arasPopupList;
 }

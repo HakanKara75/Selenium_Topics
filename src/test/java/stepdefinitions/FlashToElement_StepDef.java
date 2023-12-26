@@ -41,7 +41,7 @@ public class FlashToElement_StepDef {
 
 }
 
-    }
+
     @Then("sayfayi kapatir")
     public void sayfayi_kapatir() {
 
