@@ -20,6 +20,6 @@ public class ShadowRoot_Page {
     public WebElement shadow;
     @FindBy(xpath = "//div[@class='banner__accept-button']")
     public WebElement hepsiniKabulEt;
-    @FindBy(css = "svg[xmlns='http://www.w3.org/2000/svg']")
-    public List<WebElement> arasPopupList;
+    @FindBy(xpath = "//div[@class='popup-close']/*[name()='svg']")
+    public WebElement arasPopupList;
 }
