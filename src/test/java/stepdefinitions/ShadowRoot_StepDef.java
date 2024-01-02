@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -34,24 +35,6 @@ public class ShadowRoot_StepDef {
         WebElement shadowElement = searchContext.findElement(By.cssSelector("div[data-name='Accept Button']"));
 
         shadowElement.click();
-    }
-
-
-    @Given("aras sayfasina gider")
-    public void aras_sayfasina_gider() {
-        getDriver().get(ConfigReader.getProperty("aras"));
-
-
-//        WebElement acceptButton = (WebElement) ((JavascriptExecutor) getDriver())
-//                .executeScript("return arguments[0].shadowRoot.querySelector('.banner__accept-button')", page.shadow);
-//       ReusableMethods.clickByJavaScript(acceptButton);
-
-        page.arasPopupList.click();
-
-        ReusableMethods.bekle(5);
-
-
-
     }
 
     @Given("automationexercise sayfasina gider")
@@ -97,5 +80,23 @@ public class ShadowRoot_StepDef {
         WebElement text = getDriver().findElement(By.xpath("//h2[text()='Full-Fledged practice website for Automation Engineers']"));
         assertTrue(text.isDisplayed());
     }
+    @Given("aras sayfasina gider")
+    public void aras_sayfasina_gider() {
+        getDriver().get(ConfigReader.getProperty("aras"));
+
+
+        WebElement acceptButton = (WebElement) ((JavascriptExecutor) getDriver())
+                .executeScript("return arguments[0].shadowRoot.querySelector('.banner__accept-button')", page.shadow);
+       ReusableMethods.clickByJavaScript(acceptButton);
+
+        page.arasPopupList.click();
+
+        ReusableMethods.bekle(5);
+
+
+
+    }
+
+
 
 }
