@@ -84,12 +84,12 @@ public class ShadowRoot_StepDef {
     public void aras_sayfasina_gider() {
         getDriver().get(ConfigReader.getProperty("aras"));
 
-
+        //shadow root içeren elementi clickler
         WebElement acceptButton = (WebElement) ((JavascriptExecutor) getDriver())
                 .executeScript("return arguments[0].shadowRoot.querySelector('.banner__accept-button')", page.shadow);
        ReusableMethods.clickByJavaScript(acceptButton);
 
-        page.arasPopupList.click();
+       page.arasPopupList.click();
 
         ReusableMethods.bekle(5);
 
