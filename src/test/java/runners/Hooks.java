@@ -43,16 +43,16 @@ asagida hata alinirsa screenshot yapilacagina dair metot var
 
     }
     @After
-    public void teardown(Scenario scenario){// bu class yardimci olacak
-        //Eger scenario failed olursa alinan ekran goruntusu rapora eklenecek.
-        final byte[] failedScreenShot=((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-        if (scenario.isFailed()){
-            TakesScreenshot ts= (TakesScreenshot) Driver.getDriver();
-            scenario.attach(failedScreenShot,"image/png", "failed_scenario"+scenario.getName());
+    public void tearDownScenarios(Scenario scenario){
+        System.out.println("After Metotu");
+//        Eger bir Scenario FAIL ederse, ekran goruntusunu al ve rapora ekle
+        if (scenario.isFailed()) {
+            final byte[] failedScreenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+//                       ekran goruntusu    file tipi                  ekran goruntusunun adi
+            scenario.attach(failedScreenshot, "image/png", "failed_scenario_" + scenario.getName());
 
+            Driver.closeDriver(); // Burasi tarayici kapatir
         }
-        //Driver.closeDriver();
-
     }
 
 }

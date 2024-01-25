@@ -45,12 +45,13 @@ public class Driver {
             switch (browserType){
 
                 case "chrome":
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-                    chromeOptions.setPageLoadTimeout(Duration.ofSeconds(14));
+                    System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
+                    driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
+
+
+//                    ChromeOptions chromeOptions = new ChromeOptions();
+//                    chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
+//                    chromeOptions.setPageLoadTimeout(Duration.ofSeconds(14));
 
                     //1-asagideki 3 satirdaki kodlar testleri Headless (Jenkins gibi) kosmak istedigimiz yerlerde aktive edilebilir
 //                    ChromeOptions options = new ChromeOptions();
@@ -66,14 +67,12 @@ public class Driver {
 
                 case "safari" :
                     driver=new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
                     break;
 
                 case "firefox":
                     driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
                     break;
 
                 default:
@@ -81,6 +80,8 @@ public class Driver {
                     driver=null;
 
             }
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         }
 
         return driver;

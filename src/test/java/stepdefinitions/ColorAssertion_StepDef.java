@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.support.Color;
 import pages.ColorAssertion_Page;
 import utilities.ConfigReader;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -20,21 +21,18 @@ public class ColorAssertion_StepDef {
     @Then("cok satanlar linki yanindaki yeni ikonunun kirmizi oldugunu dogrular")
     public void cokSatanlarLinkiYanindakiYeniIkonununKirmiziOldugunuDogrular() {
         //Elementin beklenen renk degerini gir
-        String expectedRgbColorCode = "#dc2e2e";
-        // Arka plan rengini yazdır
-        String backgroundColor =  page.yeni.getCssValue("background-color");
+        String expectedRgbColorCode="#dc2e2e";
+        System.out.println("expectedRgbColorCode = " + expectedRgbColorCode);
 
-        // Arka plan rengini yazdır
-        System.out.println("Background Color: " + backgroundColor);
+        String backgroundColor= page.yeni.getCssValue("background-color");
 
-        // Arka plan rengini Color nesnesine çevir
-        Color actualRgbColorCode = Color.fromString(backgroundColor);
+        Color color= Color.fromString(backgroundColor);
+        String actualRgbColorCode= color.asHex();
+        System.out.println("actualRgbColorCode.asHex() = " + actualRgbColorCode);
 
-        // Sonucu yazdır
-        System.out.println("Actual RGB Color Code: " + actualRgbColorCode.asHex());
-
-        //dogrula
         assertEquals(expectedRgbColorCode, actualRgbColorCode);
+
+        getDriver().close();
 
     }
 }

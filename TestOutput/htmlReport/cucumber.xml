@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="6.617" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="color assertion" name="color assertion" time="6.308">
+<testsuite name="Cucumber" time="3.136" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="color assertion" name="color assertion" time="2.974">
 <system-out><![CDATA[
 Given kullanici Trendyol sayfasina gider....................................passed
 Then cok satanlar linki yanindaki yeni ikonunun kirmizi oldugunu dogrular...passed
