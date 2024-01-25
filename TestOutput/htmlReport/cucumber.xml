@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="13.003" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="shadowroot" name="aras sayfasi" time="12.434">
+<testsuite name="Cucumber" time="6.617" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="color assertion" name="color assertion" time="6.308">
 <system-out><![CDATA[
-Given aras sayfasina gider..................................................passed
+Given kullanici Trendyol sayfasina gider....................................passed
+Then cok satanlar linki yanindaki yeni ikonunun kirmizi oldugunu dogrular...passed
 ]]></system-out>
 </testcase>
 </testsuite>
