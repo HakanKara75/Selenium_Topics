@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,8 +37,11 @@ public class Cucumber_DataTable_StepDef {
             case "ets tur":
                 Driver.getDriver().get(ConfigReader.getProperty("etstur"));
                 break;
-                case "herokuapp":
+            case "herokuapp":
                 Driver.getDriver().get(ConfigReader.getProperty("herokuapp"));
+                break;
+            case "tapAz":
+                Driver.getDriver().get(ConfigReader.getProperty("tapAz"));
                 break;
             default:
                 break;
@@ -105,5 +109,6 @@ public class Cucumber_DataTable_StepDef {
 
             Driver.closeDriver();
     }
+
 
 }

@@ -12,4 +12,8 @@ public class ColorAssertion_Page {
 
     @FindBy(xpath = "(//span[@class='new-badge'])[1]")
     public WebElement yeni;
+    @FindBy(xpath = "//button[contains(@type, 'submit')]")
+    public WebElement devamEt;
+    @FindBy(xpath = "//input[contains(@class, 'string email')]")
+    public WebElement email;
 }

@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static utilities.Driver.getDriver;
+
 public class ReusableMethods {
 
     /**
@@ -548,5 +550,19 @@ public class ReusableMethods {
         }catch (Exception e){
 
         }
+    }
+
+    /**
+     *bu metot boot strap ile gömülü gelen mesajdaki texti alarak return yapar
+     * @param field prompt mesajı çıkacak olan elementin locati verilir
+     */
+    public static String assertPromptMessageWithBootStrap(WebElement field) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+
+        if (!(Boolean) jsExecutor.executeScript("return arguments[0].validity.valid;", field)) {
+            return (String) jsExecutor.executeScript("return arguments[0].validationMessage;", field);
+        }
+
+        return "Field is valid"; // Geçerliyse boş bir mesaj ya da istediğiniz bir başka mesaj
     }
 }
