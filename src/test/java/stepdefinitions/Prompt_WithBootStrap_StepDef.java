@@ -2,10 +2,12 @@ package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import pages.ColorAssertion_Page;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 import static utilities.Driver.getDriver;
@@ -31,5 +33,22 @@ public class Prompt_WithBootStrap_StepDef {
         assertEquals(expectedData, actualData);
 
     }
+    @And("click basic auth link")
+    public void clickBasicAuthLink() {
+        page.basicAuth.click();
+    }
+    @And("assert the prompt")
+    public void assertThePrompt() {
+        ReusableMethods.bekle(2);
+        String url="https://the-internet.herokuapp.com/";
+        String username="admin";
+        String password="admin";
+        String expectedMessage="Congratulations! You must have the proper credentials.";
+        getDriver().get("https://"+username+":"+password+"@"+url);
+        String actualMessage = getDriver().findElement(By.cssSelector("div.example p")).getText().trim();
+
+        Assert.assertEquals(expectedMessage, actualMessage);
+    }
+
 
 }

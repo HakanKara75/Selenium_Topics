@@ -16,4 +16,6 @@ public class ColorAssertion_Page {
     public WebElement devamEt;
     @FindBy(xpath = "//input[contains(@class, 'string email')]")
     public WebElement email;
+    @FindBy(xpath = "//a[contains(@href, '/basic')]")
+    public WebElement basicAuth;
 }
