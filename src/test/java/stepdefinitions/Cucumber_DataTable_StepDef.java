@@ -22,9 +22,6 @@ public class Cucumber_DataTable_StepDef {
     @Given("{string} sitesine gidilir")
     public void sitesine_gidilir(String string) {
         switch (string) {
-            case "heroku":
-                Driver.getDriver().get(ConfigReader.getProperty("heroku"));
-                break;
             case "beta":
                 Driver.getDriver().get(ConfigReader.getProperty("beta"));
                 break;

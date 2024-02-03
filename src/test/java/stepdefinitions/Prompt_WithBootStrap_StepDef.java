@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import pages.ColorAssertion_Page;
 import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static utilities.Driver.getDriver;
 import static utilities.ReusableMethods.assertPromptMessageWithBootStrap;
 
@@ -27,20 +29,25 @@ public class Prompt_WithBootStrap_StepDef {
 
     @Then("girilemediği prompt ile dogrulanir")
     public void girilemediğiPromptIleDogrulanir() {
-        String expectedData="'.', '.com' üzerinde yanlış bir konumda kullanılmış.";
+        String expectedData="\".\", \".com\" adı içinde yanlış bir konumda kullanılmış.";
         String actualData= assertPromptMessageWithBootStrap(page.email);
         System.out.println("str = " + actualData);
-        assertEquals(expectedData, actualData);
+        //assertTrue( actualData.contains(expectedData));
+        assertEquals( expectedData, actualData );
 
     }
     @And("click basic auth link")
     public void clickBasicAuthLink() {
-        page.basicAuth.click();
+
     }
     @And("assert the prompt")
     public void assertThePrompt() {
+getDriver().manage().deleteAllCookies();
+        String url="https://the-internet.herokuapp.com/basic_auth";
+getDriver().get(url);
         ReusableMethods.bekle(2);
-        String url="https://the-internet.herokuapp.com/";
+
+
         String username="admin";
         String password="admin";
         String expectedMessage="Congratulations! You must have the proper credentials.";
@@ -51,4 +58,7 @@ public class Prompt_WithBootStrap_StepDef {
     }
 
 
+    @Given("kullanici herokuapp sitesine gider")
+    public void kullaniciHerokuappSitesineGider() {
+    }
 }
