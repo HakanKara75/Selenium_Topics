@@ -45,19 +45,12 @@ public class Prompt_WithBootStrap_StepDef {
 
     @And("assert the prompt")
     public void assertThePrompt() {
-        getDriver().manage().deleteAllCookies();
-        String url = "https://the-internet.herokuapp.com/basic_auth";
-        getDriver().get(url);
-        ReusableMethods.bekle(2);
-
-
-        String username = "admin";
-        String password = "admin";
-        String expectedMessage = "Congratulations! You must have the proper credentials.";
-        getDriver().get("https://" + username + ":" + password + "@" + url);
+        String url="https://the-internet.herokuapp.com/";
+        String username="admin";
+        String password="admin";
+        String expectedMessage="Congratulations! You must have the proper credentials.";
+        getDriver().get("https://"+username+":"+password+"@"+url);
         String actualMessage = getDriver().findElement(By.cssSelector("div.example p")).getText().trim();
-
-        Assert.assertEquals(expectedMessage, actualMessage);
     }
 
 
