@@ -46,8 +46,8 @@ public class Driver {
             switch (browserType){
 
                 case "chrome":
-                    System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
-                    driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
+                  // System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
+                   driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
 
 
 //                    ChromeOptions chromeOptions = new ChromeOptions();
@@ -70,6 +70,7 @@ public class Driver {
                     driver=new SafariDriver();
 
                     break;
+
                 case "edge" :
                     driver=new EdgeDriver();
 

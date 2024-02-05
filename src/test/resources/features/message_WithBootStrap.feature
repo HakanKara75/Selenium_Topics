@@ -1,6 +1,6 @@
-@prompt
-  Feature: prompt
-    Scenario: prompt assertion
+@message
+  Feature: message
+    Scenario: message assertion
       Given "tapAz" sitesine gidilir
       And email kutusuna yanlis mail girilir
       And devam et butonuna basilir

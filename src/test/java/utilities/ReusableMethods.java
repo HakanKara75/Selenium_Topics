@@ -554,7 +554,7 @@ public class ReusableMethods {
 
     /**
      *bu metot boot strap ile gömülü gelen mesajdaki texti alarak return yapar
-     * @param field prompt mesajı çıkacak olan elementin locati verilir
+     * @param field yerine mesajı çıkacak olan elementin locati verilir
      */
     public static String assertPromptMessageWithBootStrap(WebElement field) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
