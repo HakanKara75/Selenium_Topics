@@ -2,8 +2,6 @@ package stepdefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pages.ColorAssertion_Page;
 import utilities.ReusableMethods;
 
@@ -12,7 +10,7 @@ import static utilities.Driver.getDriver;
 import static utilities.ReusableMethods.assertPromptMessageWithBootStrap;
 
 
-public class Prompt_WithBootStrap_StepDef {
+public class Popup_Basic_Authentication_StepDef {
     ColorAssertion_Page page = new ColorAssertion_Page();
 
     @And("email kutusuna yanlis mail girilir")
