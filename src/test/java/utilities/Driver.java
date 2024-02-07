@@ -61,7 +61,18 @@ public class Driver {
 
                     //2- yukardaki options objesini ChromeDriver() icine parametre olarak atiyorum
 //                    driver = new ChromeDriver(options);
-//                    break;
+/* Notification popup kapatmak icin asagidaki kodlar kullanilir
+ Map<String, Object> prefs = new HashMap<String, Object>();
+
+    //asagiya izin vermek icin 1 reddetmek icin 2 yazilir
+    prefs.put("profile.default_content_setting_values.notifications", 2);
+
+    ChromeOptions options = new ChromeOptions();
+
+    options.setExperimentalOption("prefs", prefs);
+
+                    driver = new ChromeDriver(options);
+ */
 
 
                     break;
