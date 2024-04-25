@@ -178,7 +178,6 @@ public class Faker_Class_$_API_StefDefinitions extends US04_US05_Methods {
     @Then("Bos veri ile Dean bodysi {string} {string} {string} {string} {string} {string}  {string} {string} {string} {string} ekleyemedigi API ile dogrulanir")
     public void bosVeriIleDeanBodysiEkleyemedigiAPIIleDogrulanir(String no, String name, String surname, String birthPlace, String birthDay, String gender, String phoneNumber, String ssn, String username, String password) {
         faker = new Faker();
-
         if (name.equals("")) {
             name = "";
         } else {

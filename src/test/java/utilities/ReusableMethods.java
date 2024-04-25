@@ -195,41 +195,69 @@ public class ReusableMethods {
         }
     }
 
-    //JS Scroll
-    public static void scroll(WebElement element) {
+    /**
+     * bu metot elementin ustune JavascriptExecutor ile goturur
+     @param webElement girilmesi gereken locate dir
+     */
+    public static void scrollIntoViewByJavaScript(WebElement webElement) {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();//Casting
+        jse.executeScript("arguments[0].scrollIntoView(true);", webElement);
+
+    }
+    /**
+     bu metot javascript kodu ile sayfayi en alta goturur
+     */
+    public static void scrollEndByJavaScript() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    }
+    /**
+     bu metot javascript kodu ile sayfayi en yukari goturur
+     */
+    public static void scrollTopByJavaScript() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0, -document.body.scrollHeight);");
+    }
+    /**bu metot sayfayi girilen string degerindeki elemente goturur
+     * @param str girilmesi gereken elementin locatinin string halidir
+     */
+    public static void scrollToElementWithString(String str) {
+        WebElement bottom = Driver.getDriver().findElement(By.xpath(str));
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(bottom).perform();
+
+    }
+    /**
+     * @param element girilmesi gereken locatidir
+    bu metot sayfayi girilen elemente goturur
+     */
+    public static void scrollToElementWithWebElement(WebElement element) {
+        WebElement bottom = element;
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(bottom).perform();
+    }
+    /**
+     @param  webElement girilmesi gereken element locati
+     @param str gonderilmek istenen metin
+      *bu metot ile metin kutusuna sendkeys gonderir
+     */
+    public static void sendAttributeJavaScript(WebElement webElement, String str) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].setAttribute('value', '" + str + "')", webElement);
     }
 
-    //JS Sayfa Sonu Scroll
-    public static void scrollEnd() {
+    /**
+     @param id girilmesi gereken id degeri
+     @param attributeName gonderilmesi gereken attribute ismi
+     bu metot ile girilen attribute degerleri ile texti alabilirim
+     */
+    public static void getValueByJavaScript(String id, String attributeName) {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-    }
-
-    //JS Sayfa Başı Scroll
-    public static void scrollHome() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
-    }
-
-    //JS SendKeys
-    public static void sendKeysJS(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].value='" + text + "'", element);
-    }
-
-    //JS SendAttributeValue
-    public static void sendAttributeJS(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].setAttribute('value','" + text + "')", element);
-    }
-
-    //JS GetAttributeValue
-    public static void getValueByJS(String id, String attributeName) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
-        System.out.println("Attribute Value: = " + attribute_Value);
+        String string = js.executeScript("return document.getElementById('" + id + "')." + attributeName + "").toString();
+        System.out.println(string);
+        //        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR
+//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
+//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
     }
 
     /**
@@ -353,7 +381,7 @@ public class ReusableMethods {
      *
      * @param scrollSize pixel degeridir. integer olarak yazilmali
      */
-    public static void scroll(int scrollSize) {
+    public static void scroll(WebElement scrollSize) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
 
         // Örneğin, sayfayı 500 piksel aşağı kaydırmak için:
@@ -466,7 +494,7 @@ public class ReusableMethods {
 
     /**
      * bu metot ile JS yolu string olarak verilen elementi JavascriptExecutor kullanarak tiklayabilirim
-     * @param webElement click yapilacak webelement yolu string olarak verilir
+     * @param javascriptYolu click yapilacak webelement yolu string olarak verilir
      */
     public static void clickJSElementWithJavaScript(String javascriptYolu) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
@@ -565,4 +593,24 @@ public class ReusableMethods {
 
         return "Field is valid"; // Geçerliyse boş bir mesaj ya da istediğiniz bir başka mesaj
     }
+
+    /**
+     * bu metot ile bir elementin gorunurlugu degisir ve gorunur olur
+     * @param element gorunur kilinmak istenene elementin locate verilmeli
+     */
+    public static void changeVisibility(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].visibility='visible';", element);
+
+    }
+    /**
+     * bu metot ile bir elementin gorunurlugu degisir ve gorunur olur
+     * @param element gorunur kilinmak istenene elementin locate verilmeli
+     */
+    public static void changeVisibilityWebelementList(List<WebElement> element){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].visibility='visible';", element);
+
+    }
+
 }

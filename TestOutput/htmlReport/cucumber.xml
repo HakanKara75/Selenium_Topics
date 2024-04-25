@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="6.075" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="notification" name="notifications" time="5.665">
+<testsuite name="Cucumber" time="6.338" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="hiddenDropdown" name="hiddenDropdown" time="6.181">
 <system-out><![CDATA[
-Given kullanici Trendyol sayfasina gider....................................passed
+Given gratise gidilir.......................................................passed
+And searchboxa kantaron girilir.............................................passed
+Then onerilen ilk urunun kantaron sampuan oldugu dogrulanir.................passed
 ]]></system-out>
 </testcase>
 </testsuite>

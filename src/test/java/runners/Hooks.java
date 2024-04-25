@@ -51,7 +51,7 @@ asagida hata alinirsa screenshot yapilacagina dair metot var
 //                       ekran goruntusu    file tipi                  ekran goruntusunun adi
             scenario.attach(failedScreenshot, "image/png", "failed_scenario_" + scenario.getName());
 
-            Driver.closeDriver(); // Burasi tarayici kapatir
+           // Driver.closeDriver(); // Burasi tarayici kapatir
         }
     }
 
